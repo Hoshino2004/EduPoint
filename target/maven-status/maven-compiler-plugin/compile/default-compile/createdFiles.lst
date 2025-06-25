@@ -1,0 +1,10 @@
+com\mycompany\qldsv\Login.class
+com\mycompany\qldsv\Dashboard.class
+com\mycompany\qldsv\models\Score.class
+com\mycompany\qldsv\SubjectManagementPane.class
+module-info.class
+com\mycompany\qldsv\models\Student.class
+com\mycompany\qldsv\models\Subject.class
+com\mycompany\qldsv\ScoreManagementPane.class
+com\mycompany\qldsv\StudentManagementPane.class
+com\mycompany\qldsv\SystemInfo.class
