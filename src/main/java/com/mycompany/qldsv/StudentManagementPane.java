@@ -13,6 +13,7 @@ import javafx.scene.text.FontWeight;
 import javafx.animation.FadeTransition;
 import javafx.util.Duration;
 import com.mycompany.qldsv.models.Student;
+import javafx.scene.Cursor;
 
 public class StudentManagementPane {
 
@@ -38,6 +39,7 @@ public class StudentManagementPane {
         searchField.setStyle("-fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #d1d5db; -fx-font-size: 14px;");
         searchField.setPrefWidth(300);
         Button searchButton = new Button("Tìm kiếm");
+        searchButton.setCursor(Cursor.HAND);
         searchButton.setStyle("-fx-background-color: #2563eb; -fx-text-fill: white; -fx-font-size: 14px; -fx-background-radius: 5;");
         searchButton.setOnMouseEntered(e -> searchButton.setStyle("-fx-background-color: #1d4ed8; -fx-text-fill: white; -fx-font-size: 14px; -fx-background-radius: 5;"));
         searchButton.setOnMouseExited(e -> searchButton.setStyle("-fx-background-color: #2563eb; -fx-text-fill: white; -fx-font-size: 14px; -fx-background-radius: 5;"));
@@ -81,16 +83,18 @@ public class StudentManagementPane {
 
         // Buttons
         HBox buttonBox = new HBox(10);
-        Button addButton = new Button("Thêm");
         Button editButton = new Button("Sửa");
+        editButton.setCursor(Cursor.HAND);
         Button deleteButton = new Button("Xóa");
+        deleteButton.setCursor(Cursor.HAND);
         Button refreshButton = new Button("Làm mới");
-        for (Button btn : new Button[]{addButton, editButton, deleteButton, refreshButton}) {
+        refreshButton.setCursor(Cursor.HAND);
+        for (Button btn : new Button[]{editButton, deleteButton, refreshButton}) {
             btn.setStyle("-fx-background-color: #2563eb; -fx-text-fill: white; -fx-font-size: 14px; -fx-background-radius: 5;");
             btn.setOnMouseEntered(e -> btn.setStyle("-fx-background-color: #1d4ed8; -fx-text-fill: white; -fx-font-size: 14px; -fx-background-radius: 5;"));
             btn.setOnMouseExited(e -> btn.setStyle("-fx-background-color: #2563eb; -fx-text-fill: white; -fx-font-size: 14px; -fx-background-radius: 5;"));
         }
-        buttonBox.getChildren().addAll(addButton, editButton, deleteButton, refreshButton);
+        buttonBox.getChildren().addAll(editButton, deleteButton, refreshButton);
 
         tableSection.getChildren().addAll(searchBox, studentTable, buttonBox);
 
@@ -128,6 +132,7 @@ public class StudentManagementPane {
         statusLabel.setVisible(false);
 
         Button saveButton = new Button("Lưu");
+        saveButton.setCursor(Cursor.HAND);
         saveButton.setStyle("-fx-background-color: #15803d; -fx-text-fill: white; -fx-font-size: 14px; -fx-background-radius: 5;");
         saveButton.setOnMouseEntered(e -> saveButton.setStyle("-fx-background-color: #166534; -fx-text-fill: white; -fx-font-size: 14px; -fx-background-radius: 5;"));
         saveButton.setOnMouseExited(e -> saveButton.setStyle("-fx-background-color: #15803d; -fx-text-fill: white; -fx-font-size: 14px; -fx-background-radius: 5;"));
@@ -146,10 +151,6 @@ public class StudentManagementPane {
                 }
             }
             studentTable.setItems(filteredList);
-        });
-
-        addButton.setOnAction(e -> {
-            clearForm(mssvField, nameField, genderCombo, dobField, classField, emailField, statusLabel);
         });
 
         editButton.setOnAction(e -> {

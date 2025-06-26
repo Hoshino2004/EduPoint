@@ -14,6 +14,7 @@ import javafx.scene.text.FontWeight;
 import javafx.animation.FadeTransition;
 import javafx.util.Duration;
 import com.mycompany.qldsv.models.Score;
+import javafx.scene.Cursor;
 
 public class ScoreManagementPane {
 
@@ -36,12 +37,15 @@ public class ScoreManagementPane {
         HBox filterBox = new HBox(10);
         ComboBox<String> classCombo = new ComboBox<>(FXCollections.observableArrayList("CNTT01", "CNTT02", "CNTT03"));
         classCombo.setPromptText("Chọn lớp");
+        classCombo.setCursor(Cursor.HAND);
         ComboBox<String> semesterCombo = new ComboBox<>(FXCollections.observableArrayList("HK1-2023", "HK2-2023", "HK1-2024"));
+        semesterCombo.setCursor(Cursor.HAND);
         semesterCombo.setPromptText("Chọn học kỳ");
         TextField searchField = new TextField();
         searchField.setPromptText("Tìm kiếm theo MSSV hoặc Tên SV");
         searchField.setPrefWidth(200);
         Button searchButton = new Button("Tìm kiếm");
+        searchButton.setCursor(Cursor.HAND);
         searchButton.setStyle("-fx-background-color: #2563eb; -fx-text-fill: white; -fx-font-size: 14px; -fx-background-radius: 5;");
         searchButton.setOnMouseEntered(e -> searchButton.setStyle("-fx-background-color: #1d4ed8; -fx-text-fill: white; -fx-font-size: 14px; -fx-background-radius: 5;"));
         searchButton.setOnMouseExited(e -> searchButton.setStyle("-fx-background-color: #2563eb; -fx-text-fill: white; -fx-font-size: 14px; -fx-background-radius: 5;"));
@@ -88,16 +92,18 @@ public class ScoreManagementPane {
 
         // Buttons
         HBox buttonBox = new HBox(10);
-        Button addButton = new Button("Lưu");
         Button editButton = new Button("Cập nhật");
+        editButton.setCursor(Cursor.HAND);
         Button deleteButton = new Button("Xóa điểm");
+        deleteButton.setCursor(Cursor.HAND);
         Button refreshButton = new Button("Làm mới");
-        for (Button btn : new Button[]{addButton, editButton, deleteButton, refreshButton}) {
+        refreshButton.setCursor(Cursor.HAND);
+        for (Button btn : new Button[]{editButton, deleteButton, refreshButton}) {
             btn.setStyle("-fx-background-color: #2563eb; -fx-text-fill: white; -fx-font-size: 14px; -fx-background-radius: 5;");
             btn.setOnMouseEntered(e -> btn.setStyle("-fx-background-color: #1d4ed8; -fx-text-fill: white; -fx-font-size: 14px; -fx-background-radius: 5;"));
             btn.setOnMouseExited(e -> btn.setStyle("-fx-background-color: #2563eb; -fx-text-fill: white; -fx-font-size: 14px; -fx-background-radius: 5;"));
         }
-        buttonBox.getChildren().addAll(addButton, editButton, deleteButton, refreshButton);
+        buttonBox.getChildren().addAll(editButton, deleteButton, refreshButton);
 
         tableSection.getChildren().addAll(filterBox, scoreTable, buttonBox);
 
@@ -138,6 +144,7 @@ public class ScoreManagementPane {
         statusLabel.setVisible(false);
 
         Button saveButton = new Button("Lưu");
+        saveButton.setCursor(Cursor.HAND);
         saveButton.setStyle("-fx-background-color: #15803d; -fx-text-fill: white; -fx-font-size: 14px; -fx-background-radius: 5;");
         saveButton.setOnMouseEntered(e -> saveButton.setStyle("-fx-background-color: #166534; -fx-text-fill: white; -fx-font-size: 14px; -fx-background-radius: 5;"));
         saveButton.setOnMouseExited(e -> saveButton.setStyle("-fx-background-color: #15803d; -fx-text-fill: white; -fx-font-size: 14px; -fx-background-radius: 5;"));
@@ -169,10 +176,6 @@ public class ScoreManagementPane {
                 }
             }
             scoreTable.setItems(filteredList);
-        });
-
-        addButton.setOnAction(e -> {
-            clearForm(mssvField, studentNameField, subjectCodeField, subjectNameField, midTermSpinner, finalSpinner, statusLabel);
         });
 
         editButton.setOnAction(e -> {

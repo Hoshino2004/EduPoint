@@ -15,6 +15,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import javafx.animation.ScaleTransition;
+import javafx.scene.Cursor;
 import javafx.util.Duration;
 
 public class Dashboard extends Application {
@@ -65,6 +66,7 @@ public class Dashboard extends Application {
         for (int i = 0; i < menuItems.length; i++) {
             String item = menuItems[i];
             Button menuButton = new Button(item);
+            menuButton.setCursor(Cursor.HAND);
             menuButtons[i] = menuButton;
 
             // Default style

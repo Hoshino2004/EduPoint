@@ -12,6 +12,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import javafx.animation.FadeTransition;
+import javafx.scene.Cursor;
 import javafx.util.Duration;
 
 public class Login extends Application {
@@ -58,6 +59,7 @@ public class Login extends Application {
 
         // Remember me checkbox
         CheckBox rememberCheckBox = new CheckBox("Ghi nhớ tài khoản");
+        rememberCheckBox.setCursor(Cursor.HAND);
         rememberCheckBox.setFont(Font.font("Arial", 12));
 
         // Error label
@@ -71,10 +73,12 @@ public class Login extends Application {
         buttonBox.setAlignment(Pos.CENTER);
 
         Button loginButton = new Button("Đăng nhập");
+        loginButton.setCursor(Cursor.HAND);
         loginButton.setStyle("-fx-background-color: #2563eb; -fx-text-fill: white; -fx-font-size: 14px; -fx-background-radius: 5;");
         loginButton.setPrefWidth(100);
 
         Button exitButton = new Button("Thoát");
+        exitButton.setCursor(Cursor.HAND);
         exitButton.setStyle("-fx-background-color: #dc2626; -fx-text-fill: white; -fx-font-size: 14px; -fx-background-radius: 5;");
         exitButton.setPrefWidth(100);
 
